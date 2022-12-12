@@ -8,12 +8,12 @@ function Home() {
     const [Email, setEmail] = useState("");
     const [Name, setName] = useState("");
     const [Age, setAge] = useState("");
-    const [Timeslot, setTimeslot] = useState("");
+    const [Timeslot, setTimeslot] = useState("6-7 AM");
     const [StartDate, setStartDate] = useState("");
 
     const addData = async (name, email, age, timeSlot, startDate) => {
         console.log(name, email, age, Timeslot, startDate);
-        const response = await fetch('http://localhost:3001/api/addData', {
+        const response = await fetch('https://flexmonrybackend.onrender.com/api/addData', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -31,7 +31,7 @@ function Home() {
 
     const handleClick = (e) => {
         e.preventDefault();
-        addData(Name, Email, Age, "Timeslot", StartDate);
+        addData(Name, Email, Age, Timeslot, StartDate);
     };
 
     return (
